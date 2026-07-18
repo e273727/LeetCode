@@ -1,15 +1,13 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
-        ans=set()
-        n = len(nums)
-        for i in range(0, n):
-            for j in range(i+1,n-1):
-                k=j+1
-                if (nums[i]+nums[j]+nums[k]==0):
-                    listAns = [nums[i], nums[j], nums[k]]
-                    listAns.sort()
-                    ans.add(tuple(listAns))
-                k+=1
-        return list(ans)
-
-        
+        listAns = set()
+        for i in range(0, len(nums)):
+            hashSet = set()
+            for j in range(i+1, len(nums)):
+                third = -(nums[i]+nums[j])
+                if third in hashSet:
+                    temp = [nums[i], nums[j], third]
+                    temp.sort()
+                    listAns.add(tuple(temp))                   
+                hashSet.add(nums[j])
+        return list(listAns)
