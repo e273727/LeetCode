@@ -1,16 +1,26 @@
 class Solution:
     def minimumSum(self, nums: List[int]) -> int:
-        sumM = 1000
-        for i in range(0,len(nums)):
-            j=i+1
-            while j<len(nums):
-                k=j+1
-                while k<len(nums):
-                    minSum = nums[i]+nums[j]+nums[k]
-                    if nums[i]<nums[j] and nums[k]<nums[j]:
-                        if minSum < sumM:
-                            sumM = minSum
-                    k+=1
-                j+=1
-        return -1 if sumM==1000 else sumM
+        n = len(nums)
 
+        # leftMin[i] = minimum value from nums[0...i]
+        leftMin = [0] * n
+        leftMin[0] = nums[0]
+
+        for i in range(1, n):
+            leftMin[i] = min(leftMin[i - 1], nums[i])
+
+        # rightMin[i] = minimum value from nums[i...n-1]
+        rightMin = [0] * n
+        rightMin[n - 1] = nums[n - 1]
+
+        for i in range(n - 2, -1, -1):
+            rightMin[i] = min(rightMin[i + 1], nums[i])
+
+        ans = float("inf")
+
+        for j in range(1, n - 1):
+            if leftMin[j - 1] < nums[j] and rightMin[j + 1] < nums[j]:
+                ans = min(ans, leftMin[j - 1] + nums[j] + rightMin[j + 1])
+
+        return -1 if ans == float("inf") else ans
+        
