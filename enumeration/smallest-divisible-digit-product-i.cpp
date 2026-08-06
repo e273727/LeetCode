@@ -11,7 +11,7 @@ public:
     }
     int smallestNumber(int n, int t) {
         int digit;
-        while (n<100){
+        while (n<=100){
             int product = digitProduct(n);
             if(product%t == 0){
                 return n;
