@@ -7,7 +7,6 @@ public:
                 if(i<j && nums.at(i)<nums.at(j)){
                     int Diff = nums.at(j)-nums.at(i);
                     maxDiff = max(maxDiff, Diff);
-                    j++;
                 }
             }
         }
