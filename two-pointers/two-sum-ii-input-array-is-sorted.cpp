@@ -11,7 +11,7 @@ public:
                 ans[1]=right+1;
                 return ans; 
             }
-            else if(target<numbers[right]){
+            else if(target<sum){
                 right--;
             }
             else{
