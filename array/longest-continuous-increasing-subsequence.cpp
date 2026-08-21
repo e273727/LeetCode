@@ -2,7 +2,7 @@ class Solution {
 public:
     int findLengthOfLCIS(vector<int>& nums) {
         int longest = 1;
-        int count = 0;
+        int count = 1;
         int j= 1;
         int i =0;
         while(i<nums.size() && j<nums.size()){
@@ -12,7 +12,7 @@ public:
                 j++;
             }
             else if(nums.at(i)>nums.at(j)){
-                count = 0;
+                count = 1;
                 i++;
                 j++;
             }
@@ -20,7 +20,7 @@ public:
                 i++;
                 continue;
             }
-            longest = max(longest,count+1);
+            longest = max(longest,count);
         }
         return longest;      
     }
