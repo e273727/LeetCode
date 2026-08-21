@@ -4,16 +4,20 @@ public:
         int longest = 1;
         int count = 1;
         int j= 1;
-        for(int i =0; i<nums.size(); i++){
-            if(nums[i]<nums[j]){
+        int i =0;
+        while(i<nums.size() && j<nums.size()){
+            if(nums.at(i)<nums.at(j)){
                 count++;
+                i++;
                 j++;
             }
-            else if(nums[i]>nums[j]){
+            else if(nums.at(i)>nums.at(j)){
                 count = 1;
+                i++;
                 j++;
             }
             else{
+                i++;
                 continue;
             }
             longest = max(longest,count);
