@@ -3,26 +3,18 @@ public:
     int findLengthOfLCIS(vector<int>& nums) {
         int longest = 1;
         int count = 1;
-        int j= 1;
-        int i =0;
-        while(i<nums.size() && j<nums.size()){
-            if(nums.at(i)<nums.at(j)){
+
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums[i] > nums[i - 1]) {
                 count++;
-                i++;
-                j++;
             }
-            else if(nums.at(i)>nums.at(j)){
+            else {
                 count = 1;
-                i++;
-                j++;
             }
-            else{
-                i++;
-                j++;
-                continue;
-            }
-            longest = max(longest,count);
+
+            longest = max(longest, count);
         }
-        return longest;      
+
+        return longest;
     }
 };
