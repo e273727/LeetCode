@@ -18,6 +18,7 @@ public:
             }
             else{
                 i++;
+                j++;
                 continue;
             }
             longest = max(longest,count);
