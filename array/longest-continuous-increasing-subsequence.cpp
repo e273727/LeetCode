@@ -20,6 +20,7 @@ public:
                 i++;
                 continue;
             }
+            j++;
             longest = max(longest,count);
         }
         return longest;      
