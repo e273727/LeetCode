@@ -1,17 +1,17 @@
 class Solution {
 public:
 
-    bool rotate(vector<vector<int>>& rotateMat, vector<vector<int>>& target, vector<vector<int>>& mat){
-        int n =rotateMat.size();
+    bool rotate( vector<vector<int>>& target, vector<vector<int>>& mat){
+        int n =mat.size();
         for(int i =0; i<n-1; i++){
             for(int j = i+1; j<n; j++){
-                swap(rotateMat[i][j],rotateMat[j][i]);
+                swap(mat[i][j],mat[j][i]);
             }
         }
-        for(auto& row:rotateMat){
+        for(auto& row:mat){
             reverse(row.begin(),row.end());
         }
-        if(rotateMat == target){
+        if(mat == target){
             return true;
         }
         return false;
@@ -19,14 +19,8 @@ public:
     bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
         bool answer;
         int n = mat.size();
-        vector<vector<int>> rotateMat(n,vector<int>(n,0));
-        for(int i =0; i<n; i++){
-            for(int j =0; j<n; j++){
-                rotateMat[i][j] = mat[i][j];
-            }
-        }
         for(int i = 0; i<4; i++){
-            answer = rotate(rotateMat, target, mat);
+            answer = rotate(target, mat);
             if(answer == true){
                 return true;
             }
