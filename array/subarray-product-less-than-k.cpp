@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+        int count = 0;
+        double product = 1;
+        for(int i =0; i<nums.size(); i++){
+            product = 1;
+            for(int j = i; j<nums.size(); j++){
+                product*=nums[j];
+                if(product<k){
+                    count++;
+                }                
+            }
+        }
+        return count;
+        
+    }
+};
