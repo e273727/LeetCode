@@ -5,7 +5,7 @@ public:
         int minStable = -1;
         for(int i =0; i<nums.size(); i++){
             int min = nums[i];
-            if(max<=nums[i]){
+            if(max<nums[i]){
                 max = nums[i];
                 // cout<<max<<"\n";
             }
