@@ -17,9 +17,9 @@ public:
             }
             int diff = max-min;
             if(diff<=k){
-                minStable = i;
+                return i;
             }
         }
-        return minStable;        
+        return -1;       
     }
 };
