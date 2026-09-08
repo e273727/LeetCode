@@ -5,13 +5,7 @@ public:
         if(n<1000){
             return 0;
         }
-        int digit = n;
-        do {
-        digit /= 10;
-        ++count;
-        } while (digit != 0);
-        int power = pow(10,count-1);
-        int second = n%power;
-        return second+1;
+        int rem = n-1000;
+        return rem+1;
     }
 };
