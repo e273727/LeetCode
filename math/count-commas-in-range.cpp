@@ -4,7 +4,7 @@ public:
         if(n<1000){
             return 0;
         }
-        int last = n%10;
+        int last = n%100;
         return last+1;
     }
 };
