@@ -46,7 +46,7 @@ public:
             cnt1 = 1;
             el1=nums[i];
         }
-        else if(cnt2 == 0 && el2 != nums[i]){
+        else if(cnt2 == 0 && el1 != nums[i]){
             cnt2 = 1;
             el2=nums[i];
         }
