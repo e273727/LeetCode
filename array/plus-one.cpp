@@ -3,7 +3,7 @@ public:
     vector<int> plusOne(vector<int>& digits) {
         int size = sizeof(digits) / sizeof(digits[0]); // Calculates array length
     
-        int result = 0;
+        long long result = 0;
         for (int i = 0; i < digits.size(); i++) {
             result = result * 10 + digits[i]; // Shifts digits left and adds the next one
         }
