@@ -1,11 +1,7 @@
 class Solution {
 public:
-    bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
-        int len1 = abs(rec1[0]-rec1[2]);
-        int len2 = abs(rec2[0]-rec2[2]);
-        if(rec2[0]-rec1[0] <len1 && rec2[0]-rec1[0] <len2 ){
-            return true;
-        }
-        return false;        
+    bool isRectangleOverlap(auto& r1, auto& r2) {
+        return r1[0] < r2[2] && r2[0] < r1[2] &&
+               r1[1] < r2[3] && r2[1] < r1[3];
     }
 };
